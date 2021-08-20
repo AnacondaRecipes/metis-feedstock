@@ -15,24 +15,22 @@ source:
 build:
   number: 3
   binary_relocation: true
-  features:
-    - vc9  # [win and py27]
-    - vc10  # [win and py34]
-    - vc14  # [win and py>=35]
   skip: true  # [win and py35]
+  ignore_run_exports:        # Cf comment above
+    - libstdcxx-ng           # [linux]
+    - libcxx                 # [osx]
+  run_exports:
+    - {{ pin_subpackage('metis', max_pin='x.x') }}
 
 requirements:
   build:
     - cmake
-    - toolchain
+    - make   # [unix]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}  # Cf comment above
     - python  # [win]
-    - vc 9  # [win and py27]
-    - vc 10  # [win and py34]
-    - vc 14  # [win and py>=35]
+  host:
   run:
-    - vc 9  # [win and py27]
-    - vc 10  # [win and py34]
-    - vc 14  # [win and py>=35]
 
 test:
   commands:
