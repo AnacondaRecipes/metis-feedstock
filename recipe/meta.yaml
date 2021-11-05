@@ -29,6 +29,8 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}  # Cf comment above
     - python  # [win]
+    - patch   # [not win]
+    - m2-patch  # [win]
   host:
   run:
 
