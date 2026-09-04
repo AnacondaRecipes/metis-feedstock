@@ -2,18 +2,17 @@
 {% set version = "5.1.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/{{ name }}-{{ version }}.tar.gz
   sha256: 76faebe03f6c963127dbb73c13eab58c9a3faeae48779f049066a21c087c5db2
   patches:
     - vc14.patch
 
 build:
-  number: 3
+  number: 4
   binary_relocation: true
   skip: true  # [win and py35]
   ignore_run_exports:        # Cf comment above
@@ -26,11 +25,10 @@ requirements:
   build:
     - cmake
     - make   # [unix]
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}  # Cf comment above
     - python  # [win]
-    - patch   # [not win]
-    - m2-patch  # [win]
   host:
   run:
 
