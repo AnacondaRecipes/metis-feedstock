@@ -40,7 +40,7 @@ build:
 requirements:
   build:
     - cmake <4.0
-    - make
+    - make  # [unix]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
 
