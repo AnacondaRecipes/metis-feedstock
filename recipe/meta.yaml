@@ -13,7 +13,7 @@ source:
     - vc14.patch
 
 build:
-  number: 3
+  number: 4
   binary_relocation: true
   skip: true  # [win and py35]
   ignore_run_exports:        # Cf comment above
@@ -30,7 +30,6 @@ requirements:
     - {{ compiler('cxx') }}  # Cf comment above
     - python  # [win]
     - patch   # [not win]
-    - m2-patch  # [win]
   host:
   run:
 
