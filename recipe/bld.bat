@@ -1,3 +1,4 @@
+set CMAKE_POLICY_VERSION_MINIMUM=3.5
 MKDIR build\windows
 CD build\windows
 
